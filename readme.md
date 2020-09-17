@@ -36,13 +36,15 @@ open http://127.0.0.1:5000/  which should just be one page, with a message 'hell
 Good?  Close this app (in Mac/Linux hit ctrl+c in the termianl window to stop the dev server) Then next step.  Not good?  check your python install, or other steps to get flask running.   You could try using docker anyway (as that has a python setup already)
 
 
-## get some Docker
+## Dockerize
+
+### get some Docker
 
 I recommend docker destop which unless versions in 2019 or earlier, really didn't work well on Mac or Windows and used to require virtual box.   
 
 After installing docker desktop, Docker needs to be running in the background, which is will be if you've install it correctly.   
 
-## Build a docker image
+### Build a docker image
 
 If docker is installed and running then you can use the following command to build.  I use the image name based on the application name.  Substitute your app name for the 'simpleflask' name  I'm using here
 
@@ -57,7 +59,7 @@ Another important difference in the Dockerfile that you don't need when testing 
 
 A quick note about Docker 'tags' and the 'latest' tags.    Many docker repositories using the tag 'latest' and there is nothing special or magic about that.  Those devs have to create that manually.         Since 'latest' is a prevelant convention I just use it for every build and do not use any version number tags.   For this tiny example, I'm not using versioning because ... why?  No one will every want an earlier version of this (because it is probablhy broken). 
 
-## Run the image (which creates a container)
+### Run the image (which creates a container)
 
 ```
 docker run -d --name simpleflask -p 5000:5000 simpleflask:latest
@@ -73,7 +75,7 @@ Now open it up on your laptops browser  http://127.0.0.1:5000
 
 it is running ?  
 
-### stop, reverse it
+### clean up
 
 Stop the server with `docker stop simpleflask`
 
